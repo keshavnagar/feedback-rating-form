@@ -5,7 +5,13 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
 const App = () => {
   const [toggleArrow, setToggleArrow] = useState(false);
-  
+  const [option, setOption ] = useState("Option 1")
+  const handleOption = (e) => {
+    const {  value } = e.target;
+    console.log(`the value is ${value}`);
+    setOption(value)
+    setToggleArrow(!toggleArrow)
+  };
   return (
     <section className="bg-[#7f2525] w-screen h-screen flex justify-center items-center ">
       <div className="bg-[#fe4a49] w-[360px] p-[24px] rounded-md shadow-lg flex flex-col gap-5">
@@ -19,11 +25,12 @@ const App = () => {
             <input type="text" name="name" placeholder="enter your name" />
           </div>
           <div>
-            <button type="button"
-              className="flex border w-fit p-2  justify-center items-center font-bold"
+            <button
+              type="button"
+              className="flex border w-fit p-2  justify-center items-center font-bold mb-2"
               onClick={() => setToggleArrow(!toggleArrow)}
             >
-              Options
+              {option}
               <MdKeyboardArrowDown
                 size={30}
                 className={`mt-1 transition duration-300 ${
@@ -32,14 +39,34 @@ const App = () => {
               />
             </button>
             <div
-              className={` border transition duration-300 ${
+              className={` border transition duration-300 bg-[#7f2525] ${
                 toggleArrow ? `visible` : `hidden`
               } absolute`}
             >
-              <div className="hover:bg-gray-200 px-5 py-1">Option 1</div>
-              <div className="hover:bg-gray-200 px-5 py-1">Option 1</div>
-              <div className="hover:bg-gray-200 px-5 py-1">Option 1</div>
-              <div className="hover:bg-gray-200 px-5 py-1">Option 1</div>
+              <option
+                className="hover:bg-[#fe4a49] tracking-wide px-5 py-1"
+                onClick={handleOption}
+              >
+                Option 1
+              </option>
+              <option
+                className="hover:bg-[#fe4a49] tracking-wide px-5 py-1"
+                onClick={handleOption}
+              >
+                Option 2
+              </option>
+              <option
+                className="hover:bg-[#fe4a49] tracking-wide px-5 py-1"
+                onClick={handleOption}
+              >
+                Option 3
+              </option>
+              <option
+                className="hover:bg-[#fe4a49] tracking-wide px-5 py-1"
+                onClick={handleOption}
+              >
+                Option 4
+              </option>
             </div>
           </div>
           <div>
