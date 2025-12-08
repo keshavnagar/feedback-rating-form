@@ -7,6 +7,7 @@ import { RiStarSLine } from "react-icons/ri";
 const App = () => {
   const [toggleArrow, setToggleArrow] = useState(false);
   const [feedback, setFeedback] = useState({
+    
     name: "",
     rating: "select rating",
     message: "",
